@@ -1,0 +1,28 @@
+# 用例1: 正向 - 登录成功
+- case_name: "login_success"
+  username: "bob@example.com"
+  password: "10203040"
+  expected: "Products"
+  is_positive: true
+
+
+# 用例2: 反向 - 账号被锁定 (SauceLabs Demo App 特有的测试账号)
+- case_name: "login_locked_out"
+  username: "alice@example.com"
+  password: "10203040"
+  expected: "Sorry, this user has been locked out."
+  is_positive: false
+
+# 用例3: 反向 - 密码错误
+- case_name: "login_wrong_password"
+  username: "bob@example.com"
+  password: "wrong_password"
+  expected: "Provided credentials do not match any user in this service."
+  is_positive: false
+
+# 用例4: 反向 - 用户名为空
+- case_name: "login_empty_username"
+  username: ""
+  password: "10203040"
+  expected: "Username is required"
+  is_positive: false

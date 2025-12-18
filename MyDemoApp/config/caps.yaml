@@ -1,0 +1,10 @@
+platformName: "Android"
+deviceName: "A7QK023515000172" # 你的设备ID
+appPackage: "com.saucelabs.mydemoapp.rn"
+appActivity: "com.saucelabs.mydemoapp.rn.MainActivity"
+noReset: true
+dontStopAppOnReset: true
+ensureWebviewsHavePages: true
+nativeWebScreenshot: true
+newCommandTimeout: 3600
+connectHardwareKeyboard: true
