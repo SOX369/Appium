@@ -19,18 +19,19 @@ from selenium.webdriver.support import expected_conditions as EC
 options = AppiumOptions()
 options.load_capabilities({
 	"platformName": "Android",
-	"appium:deviceName": "A7QK023515000172",
-	"appium:dontStopAppOnReset": True,
-	"appium:noReset": True,
+	"appium:automationName": "UiAutomator2",
+	"appium:deviceName": "Magic5 Pro",
 	"appium:appPackage": "com.saucelabs.mydemoapp.rn",
 	"appium:appActivity": "com.saucelabs.mydemoapp.rn.MainActivity",
+	"appium:dontStopAppOnReset": True,
+	"appium:noReset": True,
 	"appium:ensureWebviewsHavePages": True,
 	"appium:nativeWebScreenshot": True,
 	"appium:newCommandTimeout": 3600,
 	"appium:connectHardwareKeyboard": True
 })
 
-driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", options=options)
+driver = webdriver.Remote("http://127.0.0.1:4723", options=options)
 
 # 初始化等待对象
 wait = WebDriverWait(driver, 10)
@@ -89,29 +90,23 @@ x10.click()
 # 填写地址信息 (改为先 Click 后 SendKeys)
 print("输入姓名...")
 x11 = wait.until(EC.visibility_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Full Name* input field")))
-x11.click() # 激活焦点
 x11.send_keys("zhang san")
 
 print("输入地址...")
 x12 = wait.until(EC.visibility_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Address Line 1* input field")))
-x12.click()
 x12.send_keys("dsabkjcgsafvcjhafvq")
 
 print("输入城市...")
 x13 = wait.until(EC.visibility_of_element_located((AppiumBy.ACCESSIBILITY_ID, "City* input field")))
-x13.click()
 x13.send_keys("china")
 
 print("输入邮编...")
 x14 = wait.until(EC.visibility_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Zip Code* input field")))
-x14.click()
 x14.send_keys("464400")
 
 print("输入国家...")
 x15 = wait.until(EC.visibility_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Country* input field")))
-x15.click()
 x15.send_keys("china")
-
 
 print("点击去支付 (To Payment)...")
 x16 = wait.until(EC.element_to_be_clickable((AppiumBy.ACCESSIBILITY_ID, "To Payment button")))
@@ -120,25 +115,20 @@ x16.click()
 # 重点思路--------等待一个“支付页独有”的元素出现（比如“卡号 Card Number”），然后再回头去找“Full Name”--------
 wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, '//android.widget.TextView[@text="Enter a payment method"]')))
 
-
 print("输入支付姓名...")
 x17 = wait.until(EC.visibility_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Full Name* input field")))
-x17.click()
 x17.send_keys("li si")
 
 print("输入卡号...")
 x18 = wait.until(EC.visibility_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Card Number* input field")))
-x18.click()
 x18.send_keys("1234567890")
 
 print("输入过期日期...")
 x19 = wait.until(EC.visibility_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Expiration Date* input field")))
-x19.click()
 x19.send_keys("0725")
 
 print("输入安全码...")
 x20 = wait.until(EC.visibility_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Security Code* input field")))
-x20.click()
 x20.send_keys("999")
 
 print("点击预览订单 (Review Order)...")
@@ -159,8 +149,6 @@ else:
 
     assert x23=="Continue Shopping"
 
-
-print("点击继续购物 (Continue Shopping)...")
 x23 = wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, "//android.widget.TextView[@text=\"Continue Shopping\"]")))
 x23.click()
 

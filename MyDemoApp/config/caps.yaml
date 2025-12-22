@@ -1,10 +1,11 @@
-platformName: "Android"
-deviceName: "A7QK023515000172" # 你的设备ID
-appPackage: "com.saucelabs.mydemoapp.rn"
-appActivity: "com.saucelabs.mydemoapp.rn.MainActivity"
-noReset: true
-dontStopAppOnReset: true
-ensureWebviewsHavePages: true
-nativeWebScreenshot: true
-newCommandTimeout: 3600
-connectHardwareKeyboard: true
+"platformName": "Android"
+"appium:automationName": "UiAutomator2"
+"appium:deviceName": "Magic5 Pro"
+"appium:appPackage": "com.saucelabs.mydemoapp.rn"
+"appium:appActivity": "com.saucelabs.mydemoapp.rn.MainActivity"
+"appium:dontStopAppOnReset": True
+"appium:noReset": True
+"appium:ensureWebviewsHavePages": True
+"appium:nativeWebScreenshot": True
+"appium:newCommandTimeout": 3600
+"appium:connectHardwareKeyboard": True

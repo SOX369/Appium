@@ -21,18 +21,19 @@ import time
 options = AppiumOptions()
 options.load_capabilities({
 	"platformName": "Android",
-	"appium:deviceName": "A7QK023515000172",
-	"appium:dontStopAppOnReset": True,
-	"appium:noReset": True,
+	"appium:automationName": "UiAutomator2",
+	"appium:deviceName": "Magic5 Pro",
 	"appium:appPackage": "com.hihonor.android.launcher",
 	"appium:appActivity": "com.hihonor.android.launcher.unihome.UniHomeLauncher",
+	"appium:dontStopAppOnReset": True,
+	"appium:noReset": True,
 	"appium:ensureWebviewsHavePages": True,
 	"appium:nativeWebScreenshot": True,
 	"appium:newCommandTimeout": 3600,
 	"appium:connectHardwareKeyboard": True
 })
 
-driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", options=options)
+driver = webdriver.Remote("http://127.0.0.1:4723", options=options)
 
 # 初始化一个智能等待期，最多等待10s
 wait=WebDriverWait(driver,10)
