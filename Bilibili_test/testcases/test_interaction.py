@@ -31,4 +31,4 @@ class TestInteraction:
 
 
 if __name__ == '__main__':
-    pytest.main(["-s", "test_interaction.py"])
+    pytest.main(["-vs", "test_interaction.py"])

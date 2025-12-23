@@ -39,4 +39,4 @@ class TestLogin:
 
 
 if __name__ == '__main__':
-    pytest.main(["-s", "test_login.py"])
+    pytest.main(["-vs", "test_login.py"])
