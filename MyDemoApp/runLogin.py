@@ -14,7 +14,7 @@ if __name__ == '__main__':
     # -vs: 输出详细信息
     # --alluredir: 指定 Allure 数据生成路径
     # 这里不需要加 - -clean - alluredir，上面手动清理了
-    args = ['-vs', 'Appium/MyDemoApp/testcases/test_login.py', f'--alluredir={result_dir}']
+    args = ['-vs', './testcases/test_login.py', f'--alluredir={result_dir}']
     pytest.main(args)
 
     # 4. (可选) 本地调试时直接生成并打开报告
