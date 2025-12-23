@@ -10,7 +10,7 @@
 - case_name: "login_locked_out"
   username: "alice@example.com"
   password: "10203040"
-  expected: "Sorry, this user has been locked out111."
+  expected: "Sorry, this user has been locked out."
   is_positive: false
 
 # 用例3: 反向 - 密码错误
