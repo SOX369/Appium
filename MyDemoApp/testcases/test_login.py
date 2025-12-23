@@ -25,7 +25,7 @@ class TestLogin:
         expected = case_info['expected']
         is_positive = case_info['is_positive']
 
-        print(f"\n🚀 正在执行用例: {case_name}")
+        print(f"\n 正在执行用例: {case_name}")
         print(f"   输入: 用户名={username}, 密码={password}")
         print(f"   预期结果: {expected}")
 
