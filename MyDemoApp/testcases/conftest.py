@@ -1,5 +1,9 @@
 import allure
 import pytest
+
+import sys,os
+# 将项目根目录添加到 Python 路径
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 from Appium.MyDemoApp.base.driver import get_driver
 
 @pytest.fixture(scope="class")
