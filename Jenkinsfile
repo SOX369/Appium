@@ -13,8 +13,8 @@ pipeline {
         stage('Checkout Code') {
             steps {
 
-                // 先清理整个工作空间（确保没有“历史残留”或 SCM 读取留下的文件）
-                cleanWs()
+                // 先清理整个工作空间（Jenkins 自带，递归删除当前目录下所有内容）
+                deleteDir()
                 // dir 步骤会将当前的工作目录切换到你指定的文件夹（如果文件夹不存在，它会自动创建）。
                 dir('Appium') {
                     echo 'Checking out source code into Appium directory...'
