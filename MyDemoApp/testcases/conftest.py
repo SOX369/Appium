@@ -1,9 +1,10 @@
 import allure
 import pytest
 
-import sys,os
-# 将项目根目录添加到 Python 路径
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+import sys
+import os
+ # 必须向上找4层，定位到 .../FPGA_test (根目录)，这样才能找到 "Appium" 这个文件夹
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 from Appium.MyDemoApp.base.driver import get_driver
 
 @pytest.fixture(scope="class")

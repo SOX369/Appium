@@ -1,9 +1,5 @@
 import pytest
 import allure
-
-import sys,os
-# 将项目根目录添加到 Python 路径
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 from Appium.MyDemoApp.pages.shopping_page import ShoppingPage
 
 @allure.severity(allure.severity_level.CRITICAL)

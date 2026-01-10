@@ -1,12 +1,6 @@
-from appium import webdriver
-
-import sys,os
-# 将项目根目录添加到 Python 路径
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-
 from Appium.MyDemoApp.utils.file_reader import load_yaml_data
 from appium.options.common.base import AppiumOptions
-
+from appium import webdriver
 
 def get_driver():
     caps = load_yaml_data("caps.yaml")
