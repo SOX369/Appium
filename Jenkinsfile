@@ -3,8 +3,6 @@ pipeline {
     agent any
 
     options {
-        // 输出日志带时间戳
-        timestamps()
         // 保持构建历史最多 10 个，防止磁盘占满
         buildDiscarder(logRotator(numToKeepStr: '10'))
     }
