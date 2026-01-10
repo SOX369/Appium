@@ -1,7 +1,7 @@
 import pytest
 import allure
-from Appium.MyDemoApp.pages.login_page import LoginPage
-from Appium.MyDemoApp.utils.file_reader import load_yaml_data
+from MyDemoApp.pages.login_page import LoginPage
+from MyDemoApp.utils.file_reader import load_yaml_data
 
 @allure.severity(allure.severity_level.BLOCKER)
 @allure.feature("用户登录模块")           #一级分类

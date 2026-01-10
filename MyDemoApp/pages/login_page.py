@@ -1,6 +1,6 @@
 import allure
 from appium.webdriver.common.appiumby import AppiumBy
-from Appium.MyDemoApp.base.base_page import BasePage
+from MyDemoApp.base.base_page import BasePage
 
 
 class LoginPage(BasePage):

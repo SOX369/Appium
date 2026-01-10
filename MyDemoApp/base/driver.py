@@ -1,6 +1,6 @@
 from appium import webdriver
 
-from Appium.MyDemoApp.utils.file_reader import load_yaml_data
+from MyDemoApp.utils.file_reader import load_yaml_data
 from appium.options.common.base import AppiumOptions
 
 
