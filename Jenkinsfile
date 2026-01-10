@@ -4,7 +4,7 @@ pipeline {
 
     options {
         // 禁止 Agent 默认的自动检出，解决根目录出现两份代码的问题（Jenkins 的默认行为是在流水线开始前，自动将代码检出到工作区根目录 (workspace/）
-//         skipDefaultCheckout()
+        skipDefaultCheckout()
         // 保持构建历史最多 10 个，防止磁盘占满
         buildDiscarder(logRotator(numToKeepStr: '10'))
     }
