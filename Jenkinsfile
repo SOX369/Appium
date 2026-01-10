@@ -3,13 +3,20 @@ pipeline {
     agent any
 
     options {
+        // 禁止 Agent 默认的自动检出，解决根目录出现两份代码的问题（Jenkins 的默认行为是在流水线开始前，自动将代码检出到工作区根目录 (workspace/）
+        skipDefaultCheckout()
         // 保持构建历史最多 10 个，防止磁盘占满
         buildDiscarder(logRotator(numToKeepStr: '10'))
+        // (可选) 开启日志颜色，解决部分乱码显示问题
+        ansiColor('xterm')
     }
 
     stages {
         stage('Checkout Code') {
             steps {
+
+                // 先清理整个工作空间（确保没有“历史残留”或 SCM 读取留下的文件）
+                cleanWs()
                 // dir 步骤会将当前的工作目录切换到你指定的文件夹（如果文件夹不存在，它会自动创建）。
                 dir('Appium') {
                     echo 'Checking out source code into Appium directory...'
@@ -59,12 +66,12 @@ pipeline {
         }
 
         success {
-            echo '✅ 测试通过！'
+            echo '测试通过！'
             // 这里可以加发送邮件/钉钉通知的代码
         }
 
         failure {
-            echo '❌ 测试失败！'
+            echo '测试失败！'
             // 这里可以加发送报警通知的代码
         }
     }
