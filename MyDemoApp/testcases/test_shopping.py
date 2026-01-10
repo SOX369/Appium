@@ -1,6 +1,6 @@
 import pytest
 import allure
-from MyDemoApp.pages.shopping_page import ShoppingPage
+from Appium.MyDemoApp.pages.shopping_page import ShoppingPage
 
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.feature("商品购物模块")               #一级分类

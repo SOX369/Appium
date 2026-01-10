@@ -1,6 +1,6 @@
 import allure
 import pytest
-from MyDemoApp.base.driver import get_driver
+from Appium.MyDemoApp.base.driver import get_driver
 
 @pytest.fixture(scope="class")
 def driver(request):

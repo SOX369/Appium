@@ -20,5 +20,11 @@ echo [INFO] Current Dir: %cd%
 :: 调用 run_all.py (或者 runLogin.py)
 D:\Anaconda3\envs\DL\python.exe runLogin.py
 
-:: 注意：这里不需要 exit 0，让 Python 的返回码决定构建成功还是失败
+:: === 【关键修复 2】捕获 Python 错误 ===
+:: 如果 Python 执行出错 (退出码不为0)，则让 Jenkins 任务也失败
+if %errorlevel% neq 0 (
+    echo [ERROR] Python script failed!
+    exit /b %errorlevel%
+)
+
 echo [INFO] Test Script Finished.
