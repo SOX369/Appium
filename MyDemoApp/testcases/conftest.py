@@ -1,9 +1,10 @@
 import allure
 import pytest
-
 import sys
 import os
- # 必须向上找4层，定位到 .../FPGA_test (根目录)，这样才能找到 "Appium" 这个文件夹
+import time
+
+ # 向上找4层，定位到 .../FPGA_test (根目录)，这样才能找到 "Appium" 这个文件夹
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 from Appium.MyDemoApp.base.driver import get_driver
 
@@ -20,6 +21,27 @@ def driver(request):
 
     print("\n[Fixture] 正在关闭 Driver...")
     driver_instance.quit()
+
+
+# ----------------- 新增：日志配置钩子 -----------------
+# 这个钩子会在 pytest 启动配置阶段运行
+@pytest.hookimpl(tryfirst=True)
+def pytest_configure(config):
+    # 1. 定义日志目录 (这里默认是在您运行 pytest 命令的当前目录下创建 logs)
+    # 如果您想指定绝对路径，可以将 log_dir 修改为您想要的绝对路径
+    log_dir = "./logs"
+
+    # 2. 如果目录不存在，自动创建，避免报错
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+
+    # 3. 生成时间戳文件名，例如: test_run_2026-01-10_18-30-00.log
+    now = time.strftime("%Y-%m-%d_%H-%M-%S")
+    log_file_name = f"test_run_{now}.log"
+
+    # 4. 修改 pytest 的配置，覆盖 pytest.ini 中的 log_file 设置
+    # 这样生成的日志就会带上时间戳，且不会相互覆盖
+    config.option.log_file = os.path.join(log_dir, log_file_name)
 
 
 # ----------------- 新增：失败自动截图钩子 -----------------
@@ -46,3 +68,5 @@ def pytest_runtest_makereport(item, call):
                 name="失败截图_Fail_Screenshot",
                 attachment_type=allure.attachment_type.PNG
             )
+
+

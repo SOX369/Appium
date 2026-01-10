@@ -3,6 +3,9 @@
 :: 自动化测试执行脚本 (Windows)
 :: ==========================================
 
+:: 【新增】强制 Windows 控制台使用 UTF-8 编码 (65001 代表 UTF-8)
+chcp 65001
+
 :: 1. 解决 Jenkins 控制台中文乱码 & Emoji 报错问题
 set PYTHONIOENCODING=utf-8
 
