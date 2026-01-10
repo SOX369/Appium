@@ -21,7 +21,7 @@ echo [INFO] Current Dir: %cd%
 :: 4. 调用 Python 运行测试
 :: 使用你配置好的 Anaconda 绝对路径
 :: 调用 run_all.py (或者 runLogin.py)
-D:\Anaconda3\envs\DL\python.exe runLogin.py
+D:\Anaconda3\envs\DL\python.exe -u runLogin.py
 
 :: === 【关键修复 2】捕获 Python 错误 ===
 :: 如果 Python 执行出错 (退出码不为0)，则让 Jenkins 任务也失败
