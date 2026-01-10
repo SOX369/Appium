@@ -15,6 +15,7 @@ pipeline {
                     echo 'Checking out source code into Appium directory...'
                     // 自动拉取 Git 代码 (对应 Freestyle 的 Source Code Management)，这里执行拉取，代码就会落在 workspace/Appium 下
                     checkout scm
+                }
             }
         }
 
