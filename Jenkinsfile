@@ -7,8 +7,6 @@ pipeline {
         skipDefaultCheckout()
         // 保持构建历史最多 10 个，防止磁盘占满
         buildDiscarder(logRotator(numToKeepStr: '10'))
-        // (可选) 开启日志颜色，解决部分乱码显示问题
-        ansiColor('xterm')
     }
 
     stages {
