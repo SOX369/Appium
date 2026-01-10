@@ -10,8 +10,6 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                // cleanWs() 会强制清空当前工作目录，确保没有旧代码残留
-                cleanWs()
                 // dir 步骤会将当前的工作目录切换到你指定的文件夹（如果文件夹不存在，它会自动创建）。
                 dir('Appium') {
                     echo 'Checking out source code into Appium directory...'
