@@ -4,7 +4,7 @@ import sys
 import os
 import time
 
- # 向上找4层，定位到 .../FPGA_test (根目录)，这样才能找到 "Appium" 这个文件夹
+ # 向上找4层，定位到 .../FPGA_test (根目录)，这样使得在后续 jenkins 的工作空间(workspace)中才能找到 "Appium" 这个文件夹
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 from Appium.MyDemoApp.base.driver import get_driver
 
