@@ -3,11 +3,9 @@
 :: 自动化测试执行脚本 (Windows)
 :: ==========================================
 
-:: 【新增】强制 Windows 控制台使用 UTF-8 编码 (65001 代表 UTF-8)
-chcp 65001
-
-:: 1. 解决 Jenkins 控制台中文乱码 & Emoji 报错问题
-set PYTHONIOENCODING=utf-8
+:: 1. 强制 Python 输出 GBK，这样 Jenkins 就能读懂中文了
+:: 注意：如果有 Emoji，这里会报错，所以加 :ignore 忽略无法打印的字符
+set PYTHONIOENCODING=gbk:ignore
 
 :: 2. 切换到当前脚本所在的目录 (确保路径正确)
 cd /d %~dp0
@@ -21,7 +19,7 @@ echo [INFO] Current Dir: %cd%
 :: 4. 调用 Python 运行测试
 :: 使用你配置好的 Anaconda 绝对路径
 :: 调用 run_all.py (或者 runLogin.py)
-D:\Anaconda3\envs\DL\python.exe -u runLogin.py
+D:\Anaconda3\envs\DL\python.exe  runLogin.py
 
 :: === 【关键修复 2】捕获 Python 错误 ===
 :: 如果 Python 执行出错 (退出码不为0)，则让 Jenkins 任务也失败
